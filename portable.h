@@ -3,6 +3,11 @@
 
 extern int debugmode;
 
+#ifdef IMX_CUSTOM_LOG
+#include <imx_log_helper.h>
+#define printf imx_logger_log
+#endif
+
 #ifndef WIN32
 #define dbg_printf(fmt, args...)	do{ if(debugmode) fprintf(stderr, fmt, ## args); } while(0)
 #define dbg_dump_long(src, cnt, addr, skip) do{ if(debugmode) dump_long(src, cnt, addr, skip); } while(0)

@@ -467,7 +467,7 @@ struct sdp_work *parse_cmd_args(int argc, char * const *argv)
 				i++;
 				continue;
 			}
-			fprintf(stderr, "Unknown option %s\n", p);
+			printf("Unknown option %s\n", p);
 			exit(1);
 		}
 
@@ -476,8 +476,8 @@ struct sdp_work *parse_cmd_args(int argc, char * const *argv)
 		memset(w, 0, sizeof(struct sdp_work));
 		strncpy(w->filename, argv[i], sizeof(w->filename) - 1);
 		if (access(w->filename, R_OK) == -1) {
-			fprintf(stderr, "cannot read from file %s\n",
-					w->filename);
+			printf("cannot read from file %s\n",
+				   w->filename);
 			exit(1);
 		}
 
